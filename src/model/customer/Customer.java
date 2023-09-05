@@ -40,6 +40,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer Information: " +
-                "\nFirst Name: " + this.firstName + " Last Name: " + this.lastName + " Email: " + this.email;
+                "\nFirst Name: " + this.firstName + " Last Name: " + this.lastName + " Email: " + this.email
+                + "\n-----------------------------------";
     }
 }

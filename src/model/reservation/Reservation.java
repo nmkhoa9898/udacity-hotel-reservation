@@ -41,7 +41,8 @@ public class Reservation {
         return "Reservation Information: " + this.customer.toString()
                 + "\nRoom Information: " + this.room.toString()
                 + "\nCheckIn Date: " + this.checkInDate
-                + "\nCheckOut Date: " + this.checkOutDate;
+                + "\nCheckOut Date: " + this.checkOutDate
+                + "\n-----------------------------------";
     }
 
     @Override

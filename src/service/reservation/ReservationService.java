@@ -25,7 +25,7 @@ public class ReservationService {
             System.out.println("Room added!" +
                     "\nDo you want to add more room?");
         } else {
-            System.out.println("Room already exists. Do you want to add a different room?");
+            System.out.println("Room already exists. Do you want to add a different room? (Y/N)");
         }
     }
 
