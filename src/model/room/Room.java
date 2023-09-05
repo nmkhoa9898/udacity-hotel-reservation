@@ -24,7 +24,7 @@ public class Room implements IRoom {
         return this.price;
     }
 
-    public RoomType getRoomType() {
+    public RoomType getEnumeration() {
         return this.enumeration;
     }
 
@@ -33,28 +33,24 @@ public class Room implements IRoom {
     }
 
     @Override
-    public String toString() {
-        return "Room Number: " + this.roomNumber
-                + " Price: $" + this.price
-                + " Room Type: " + this.enumeration;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if(obj == this) {
             return true;
         }
-
-        if(!(obj instanceof Room)) {
+        if(!(obj instanceof Room room)) {
             return false;
         }
-
-        final Room room = (Room) obj;
         return Objects.equals(this.roomNumber, room.roomNumber);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(roomNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Room Information:" +
+                "\nRoom Number: " + this.roomNumber + "\nRoom Price: $" + this.price + "\nRoom Type: " + this.enumeration;
     }
 }

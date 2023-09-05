@@ -10,7 +10,7 @@ public enum RoomType {
         this.label = label;
     }
 
-    public static RoomType valueOfLabel(String label) {
+    public static RoomType getLabelValue(String label) {
         for (RoomType roomType : values()) {
             if (roomType.label.equals(label)) {
                 return roomType;

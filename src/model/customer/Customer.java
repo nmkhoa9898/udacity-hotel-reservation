@@ -4,22 +4,23 @@ import java.util.regex.Pattern;
 
 public class Customer {
 
-    // Pattern: name@domain.com
-    private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
+    private static final String EMAIL_PATTERN = "^(.+)@(.+).(.+)$"; // Pattern: name@domain.com
     private final String firstName;
     private final String lastName;
     private final String email;
 
     public Customer(final String firstName, final String lastName, final String email) {
-        this.isValidEmail(email);
+        this.validateCustomerEmail(email);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-    private void isValidEmail(final String email) {
-        Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
-        if(!pattern.matcher(email).matches()) {
+    private void validateCustomerEmail(final String email) {
+        if(Pattern.compile(EMAIL_PATTERN).matcher(email).matches()) {
+            System.out.println("Email is valid");
+            return;
+        } else {
             throw new IllegalArgumentException("Invalid email pattern!");
         }
     }
@@ -28,10 +29,17 @@ public class Customer {
         return this.email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     @Override
     public String toString() {
-        return "First Name: " + this.firstName
-                + " Last Name: " + this.lastName
-                + " Email: " + this.email;
+        return "Customer Information: " +
+                "\nFirst Name: " + this.firstName + " Last Name: " + this.lastName + " Email: " + this.email;
     }
 }

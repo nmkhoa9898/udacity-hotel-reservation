@@ -4,6 +4,7 @@ import model.customer.Customer;
 import model.room.IRoom;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Reservation {
 
@@ -31,11 +32,27 @@ public class Reservation {
         return this.checkOutDate;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     @Override
     public String toString() {
-        return "Customer: " + this.customer.toString()
-                + "\nRoom: " + this.room.toString()
+        return "Reservation Information: " + this.customer.toString()
+                + "\nRoom Information: " + this.room.toString()
                 + "\nCheckIn Date: " + this.checkInDate
                 + "\nCheckOut Date: " + this.checkOutDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Reservation that)) return false;
+        return Objects.equals(customer, that.customer) && Objects.equals(getRoom(), that.getRoom()) && Objects.equals(getCheckInDate(), that.getCheckInDate()) && Objects.equals(getCheckOutDate(), that.getCheckOutDate());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customer, getRoom(), getCheckInDate(), getCheckOutDate());
     }
 }

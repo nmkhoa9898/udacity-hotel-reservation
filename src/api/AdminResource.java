@@ -10,15 +10,14 @@ import java.util.List;
 
 public class AdminResource {
 
-    private static final AdminResource SINGLETON = new AdminResource();
-
-    private final CustomerService customerService = CustomerService.getSingleton();
-    private final ReservationService reservationService = ReservationService.getSingleton();
+    private static final AdminResource INSTANCE = new AdminResource();
+    private final CustomerService customerService = CustomerService.getCustomerServiceInstance();
+    private final ReservationService reservationService = ReservationService.getReservationServiceInstance();
 
     private AdminResource() {}
 
-    public static AdminResource getSingleton() {
-        return SINGLETON;
+    public static AdminResource getAdminResourceInstance() {
+        return INSTANCE;
     }
 
     public Customer getCustomer(String email) {
