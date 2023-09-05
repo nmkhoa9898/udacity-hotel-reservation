@@ -147,9 +147,9 @@ public class MainMenu {
     private static void createNewAccount() {
         System.out.println("Please enter your email in the format of name@domain.com");
         final String email = scanner.nextLine();
-        System.out.println("First Name:");
+        System.out.println("PLease enter your First Name:");
         final String firstName = scanner.nextLine();
-        System.out.println("Last Name:");
+        System.out.println("Please enter your Last Name:");
         final String lastName = scanner.nextLine();
         try {
             hotelResource.createACustomer(email, firstName, lastName);
